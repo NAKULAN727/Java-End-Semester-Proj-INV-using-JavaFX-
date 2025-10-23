@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" styleClass="dashboard-container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="dashboard-title" text="Inventory Management Dashboard">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label text="Search:" />
+                  <TextField fx:id="searchField" prefWidth="200.0" promptText="Search by name or category..." styleClass="search-field" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <TableView fx:id="itemTable" onMouseClicked="#handleSelectItem" styleClass="item-table">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+          <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Name" />
+            <TableColumn fx:id="categoryColumn" prefWidth="150.0" text="Category" />
+            <TableColumn fx:id="quantityColumn" prefWidth="100.0" text="Quantity" />
+            <TableColumn fx:id="priceColumn" prefWidth="100.0" text="Price" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <right>
+      <VBox prefWidth="300.0" spacing="15.0" styleClass="form-panel">
+         <children>
+            <Label styleClass="form-title" text="Item Management">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <VBox spacing="10.0">
+               <children>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Name:" />
+                        <TextField fx:id="nameField" promptText="Enter item name" styleClass="input-field" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Category:" />
+                        <TextField fx:id="categoryField" promptText="Enter category" styleClass="input-field" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Quantity:" />
+                        <TextField fx:id="quantityField" promptText="Enter quantity" styleClass="input-field" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Price:" />
+                        <TextField fx:id="priceField" promptText="Enter price" styleClass="input-field" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleAddItem" prefWidth="200.0" styleClass="primary-button" text="Add Item" />
+                  <Button mnemonicParsing="false" onAction="#handleUpdateItem" prefWidth="200.0" styleClass="secondary-button" text="Update Item" />
+                  <Button mnemonicParsing="false" onAction="#handleDeleteItem" prefWidth="200.0" styleClass="danger-button" text="Delete Item" />
+                  <Button mnemonicParsing="false" onAction="#handleClearFields" prefWidth="200.0" styleClass="neutral-button" text="Clear Fields" />
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </right>
+</BorderPane>
